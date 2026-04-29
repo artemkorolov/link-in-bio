@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 	initAccordion();
+	initTheme();
 });
 
 function initAccordion() {
@@ -39,6 +40,29 @@ function initAccordion() {
 		btn.classList.toggle('active');
 		btn.setAttribute('aria-expanded', String(!isOpen));
 
+	});
+}
+
+function initTheme() {
+	const themeToggle = document.getElementById('theme-toggle');
+	if (!themeToggle) return;
+
+	const savedTheme = localStorage.getItem('theme');
+
+	if (savedTheme) {
+		document.documentElement.setAttribute('data-theme', savedTheme);
+		themeToggle.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+	}
+
+	themeToggle.addEventListener('click', () => {
+		const currentTheme = document.documentElement.getAttribute('data-theme');
+		const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+		document.documentElement.setAttribute('data-theme', newTheme);
+
+		localStorage.setItem('theme', newTheme);
+
+		themeToggle.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
 	});
 }
 
