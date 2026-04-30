@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 	initAccordion();
 	initTheme();
+	renderSocialLinks();
 });
 
 function initAccordion() {
@@ -66,3 +67,52 @@ function initTheme() {
 	});
 }
 
+const socialLinks = [
+	{
+		name: "Instagram",
+		url: "https://instagram.com/",
+		icon: "img/instagram.svg",
+	},
+	{
+		name: "LinkedIn",
+		url: "https://linkedin.com/",
+		icon: "img/linkedin.svg",
+	},
+	{
+		name: "YouTube",
+		url: "https://youtube.com/",
+		icon: "img/youtube.svg",
+	},
+	{
+		name: "Telegram",
+		url: "https://t.me/",
+		icon: "img/telegram.svg",
+	},
+]
+
+function renderSocialLinks() {
+	const container = document.querySelector('.social-links');
+	if (!container) return;
+
+	container.textContent = '';
+
+	socialLinks.forEach(link => {
+		const anchor = document.createElement('a');
+		anchor.href = link.url;
+		anchor.className = 'social-btn';
+		anchor.target = '_blank';
+		anchor.rel = 'noopener noreferrer';
+
+		const img = document.createElement('img');
+		img.src = link.icon;
+		img.alt = `${link.name} Logo`;
+
+		const text = document.createTextNode(link.name);
+
+		anchor.appendChild(img);
+		anchor.appendChild(text);
+
+		container.appendChild(anchor);
+	});
+
+}
