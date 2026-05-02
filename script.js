@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	initAccordion();
 	initTheme();
 	renderSocialLinks();
+	renderPromotions();
 });
 
 function initAccordion() {
@@ -115,4 +116,50 @@ function renderSocialLinks() {
 		container.appendChild(anchor);
 	});
 
+}
+
+const promotionsData = [
+	{
+		title: "20% OFF – FAST HOSTING",
+		description: "Get reliable, fast, and secure hosting for your website. Automatically get 20% off with the link below!",
+		image: "img/server.jpg",
+		link: "#",
+	},
+	{
+		title: "10% OFF – WEBSITE DEVELOPMENT",
+		description: "Order a custom website with me and get a 10% discount. Speed, security, and design included!",
+		image: "img/promo.jpg",
+		link: "#",
+	},
+]
+
+function renderPromotions() {
+	const container = document.querySelector('.promo-container');
+	if (!container) return;
+
+	container.textContent = '';
+
+	promotionsData.forEach(promo => {
+		const card = document.createElement('div');
+		card.className = 'promo-card';
+
+		const img = document.createElement('img');
+		img.src = promo.image;
+		img.alt = promo.title;
+
+		const title = document.createElement('h3');
+		title.textContent = promo.title;
+
+		const p = document.createElement('p');
+		p.textContent = promo.description;
+
+		const btn = document.createElement('a');
+		btn.href = promo.link;
+		btn.className = 'promo-btn';
+		btn.textContent = 'Chek it Out';
+
+		card.append(img, title, p, btn);
+
+		container.appendChild(card);
+	});
 }
