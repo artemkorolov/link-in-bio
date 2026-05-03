@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+	updateDynamicStatus();
 	initAccordion();
 	initTheme();
 	renderSocialLinks();
@@ -66,6 +67,32 @@ function initTheme() {
 
 		themeToggle.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
 	});
+}
+
+function updateDynamicStatus() {
+	const statusDot = document.getElementById('status-dot');
+	const statusText = document.getElementById('status-text');
+
+	if (!statusDot || !statusText) return;
+
+	const now = new Date();
+	const currentHour = now.getHours();
+	const currentDay = now.getDay();
+
+	const isWeekend = (currentDay === 0 || currentDay === 6);
+	const isWorkHours = currentHour >= 9 && currentHour < 21;
+
+	if (isWeekend) {
+		statusDot.className = 'dot away';
+		statusText.textContent = 'Weekend Mode (Resting)';
+	} else if (isWorkHours) {
+		statusDot.className = 'dot online';
+		statusText.textContent = 'Available for work';
+	} else {
+		statusDot.className = 'dot away';
+		statusText.textContent = 'Away (Probably coding)';
+	}
+
 }
 
 const socialLinks = [

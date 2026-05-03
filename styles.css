@@ -131,6 +131,32 @@ h3 {
 	font-size: clamp(14px, 2vw, 15px);
 }
 
+.status-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin-bottom: 15px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.dot.online {
+	background-color: green;
+	box-shadow: 0 0 8px green;
+}
+
+.dot.away {
+	background-color: #9ca3af;
+}
+
 
 /* ============================= */
 /*          SOCIAL LINKS       */
