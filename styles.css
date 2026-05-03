@@ -1,10 +1,3 @@
-/*
-* Browsers: last 4 version
-*/
-
-/* ============================= */
-/*        GLOBAL STYLES          */
-/* ============================= */
 :root {
 	--bg-color: #ffffff;
 	--text-color: #000000;
@@ -13,6 +6,9 @@
 	--hover: #e7e7e7;
 	--promo-btn: #fff;
 	--promo-btn-hover: #f3f1f1;
+	--status-online: #4ade80;
+	--status-away: #9ca3af;
+	--shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] {
@@ -23,6 +19,9 @@
 	--hover: #333333;
 	--promo-btn: #2d2d2d;
 	--promo-btn-hover: #3d3d3d;
+	--status-online: #22c55e;
+	--status-away: #6b7280;
+	--shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -38,14 +37,8 @@ body {
 	padding: 0;
 	background-color: var(--bg-color);
 	color: var(--text-color);
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	min-height: 100vh;
 	font-size: clamp(14px, 2vw, 16px);
@@ -79,10 +72,6 @@ h3 {
 	border-radius: 10px;
 }
 
-
-/* ============================= */
-/*          HEADER SECTION       */
-/* ============================= */
 .header {
 	text-align: center;
 	margin-bottom: 40px;
@@ -91,8 +80,7 @@ h3 {
 .theme-controls {
 	display: flex;
 	justify-content: center;
-	margin-top: 20px;
-	margin-bottom: 30px;
+	margin: 20px 0 30px;
 }
 
 .theme-btn {
@@ -114,9 +102,8 @@ h3 {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	-o-object-fit: cover;
 	object-fit: cover;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--shadow-soft);
 }
 
 .profile-bio {
@@ -149,25 +136,16 @@ h3 {
 }
 
 .dot.online {
-	background-color: green;
-	box-shadow: 0 0 8px green;
+	background-color: var(--status-online);
+	box-shadow: 0 0 8px var(--status-online);
 }
 
 .dot.away {
-	background-color: #9ca3af;
+	background-color: var(--status-away);
 }
 
-
-/* ============================= */
-/*          SOCIAL LINKS       */
-/* ============================= */
 .social-links {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
 	gap: 10px;
 	margin: 0 auto 40px;
@@ -181,21 +159,14 @@ h3 {
 }
 
 .social-btn {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
 	position: relative;
 	padding: 18px;
 	background-color: var(--primary-color);
 	border-radius: 30px;
 	text-decoration: none;
-	color: #333;
 	font-size: 14px;
 	font-weight: 500;
 	min-width: 150px;
@@ -205,8 +176,6 @@ h3 {
 	position: absolute;
 	left: 10px;
 	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
 
@@ -214,10 +183,6 @@ h3 {
 	background: var(--hover);
 }
 
-
-/* ============================= */
-/*      PROMOTIONS SECTION       */
-/* ============================= */
 .promo-card {
 	border: 1px solid var(--border-color);
 	padding: 20px;
@@ -240,17 +205,12 @@ h3 {
 	border-radius: 5px;
 	cursor: pointer;
 	margin: 10px 0;
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .promo-btn:hover {
 	background: var(--promo-btn-hover);
 }
 
-
-/* ============================= */
-/*          FAQ SECTION       */
-/* ============================= */
 .faq {
 	max-width: 600px;
 	margin: 40px auto;
@@ -297,10 +257,6 @@ h3 {
 	padding: 10px;
 }
 
-
-/* ============================= */
-/*          MEDIA QUERIES        */
-/* ============================= */
 @media (max-width: 480px) {
 	.container {
 		padding: 40px 15px;
