@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+	renderSocialLinks();
+	renderPromotions();
+	renderFaq();
 	updateDynamicStatus();
 	initAccordion();
 	initTheme();
-	renderSocialLinks();
-	renderPromotions();
+
 });
 
 function initAccordion() {
@@ -189,4 +191,48 @@ function renderPromotions() {
 
 		container.appendChild(card);
 	});
+}
+
+const faqData = [
+	{
+		question: "How long have you been programming?",
+		answer: "I started programming in 2021 and have worked on both freelance and team projects since then"
+	},
+	{
+		question: "Can I contact you for help or advice?",
+		answer: ">Absolutely! Feel free to reach out via any of the social platforms above or by email"
+	},
+	{
+		question: "What technologies do you specialize in?",
+		answer: "My focus is on front-end and back-end web development using WordPress, PHP, React, and custom solutions"
+	},
+]
+
+function renderFaq() {
+	const faqContainer = document.querySelector('.faq');
+	if (!faqContainer) return;
+
+	const title = document.createElement('h2');
+	title.textContent = 'FAQ';
+
+	faqContainer.appendChild(title);
+
+	faqData.forEach(item => {
+		const faqItem = document.createElement('div');
+		faqItem.className = 'faq-item';
+
+		const button = document.createElement('button');
+		button.className = 'faq-question';
+		button.textContent = item.question;
+		button.setAttribute('aria-expanded', 'false');
+
+		const answer = document.createElement('p');
+		answer.className = 'faq-answer';
+		answer.textContent = item.answer;
+
+		faqItem.appendChild(button);
+		faqItem.appendChild(answer);
+		faqContainer.appendChild(faqItem);
+	});
+
 }
