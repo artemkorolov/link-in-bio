@@ -1,14 +1,14 @@
 # Link in Bio Page
 
-Simple, responsive “Link in bio” landing page for developers and content creators.
+Simple, lightweight, and highly customizable "Link in bio" landing page designed for developers and content creators. Built with a focus on performance, accessibility, and dynamic content.
 
 ## 🔗 Features
-- Profile picture and bio
-- Social media buttons
-- Special promotions
-- Expandable FAQ section
-- Clean, responsive layout
-- Accessible (ARIA attributes)
+* **Dynamic Rendering:** Social links, FAQ sections, and special promotions are rendered dynamically from JavaScript data arrays/objects for easy maintenance.
+* **Smart Online Status:** Built-in logic to show a dynamic online/offline status based on the time of day and weekends.
+* **Dark Mode Support:** Full dark theme support with persistent storage (remembers your choice after page reload).
+* **Interactive FAQ:** Expandable accordion section with auto-close logic (only one item stays open at a time).
+* **Accessibility:** Fully accessible layout using semantic HTML and ARIA attributes for screen readers.
+* **Responsive Design:** Optimized for all devices.
 
 ## 🛠 Tech Stack
 - HTML5
